@@ -7,9 +7,12 @@ def sum_of_positives(numbers):
 
 def composition(numbers):
     composition = 1
-    for i in range(numbers.index(min(numbers)) + 1, numbers.index(max(numbers))):
-        composition *= numbers[i]
-        print(composition)
+    if numbers.index(min(numbers)) + 1 < numbers.index(max(numbers)):
+        for i in range(numbers.index(min(numbers)) + 1, numbers.index(max(numbers))):
+            composition *= numbers[i]
+    else:
+        for i in range(numbers.index(max(numbers)) + 1, numbers.index(min(numbers))):
+            composition *= numbers[i]
     return composition
 
 file1 = open("input.txt", "r")
